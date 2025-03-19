@@ -18,13 +18,13 @@ const Header = () => {
     //   </Toolbar>
     // </AppBar>
     <nav className="flex relative justify-end gap-4 text-3xl p-4 bg-gray-200 text-black">
-      <a className="hover:underline hover:scale-115" href="/">
+      <a className="hover:underline hover:animate-bounce" href="/">
         Home
       </a>
-      <a className="hover:underline hover:scale-115" href="/login">
+      <a className="hover:underline hover:animate-bounce" href="/login">
         Login
       </a>
-      <a className="hover:underline hover:scale-115" href="/register">
+      <a className="hover:underline hover:animate-bounce" href="/register">
         Register
       </a>
     </nav>
