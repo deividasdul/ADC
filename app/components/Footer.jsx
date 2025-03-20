@@ -1,161 +1,60 @@
 import React from "react";
+import DevDiv from "../components/DevDiv";
+
 const Footer = () => {
-  return <>
-    <footer class=" bg-gray-800 text-gray-100" >
+  return (
+    <>
+      <footer class=" bg-gray-800 text-gray-100">
         <div class="flex flex-wrap text-gray-900">
-            <div class="w-full md:w-1/3  p-2 mb-4 font-mono">
-                <div class="bg-gray-200 p-4 rounded">
-                    <p class="pb-2 pl-1 font-bold text-lg ">
-                        Dev 1
-                    </p>
-                    <p class="pb-2 pl-1 ">
-                        Deividas Dulinskas
-                    </p>
-                    <div class="flex items-center py-1">
-                        <a class="" href="https://github.com/deividasdul">
-                            <svg class="w-12 h-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="black">
-                            <path
-                                fill="none"
-                                stroke="black"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                fillRule="evenodd"
-                                d="M24,2.5a21.5,21.5,0,0,0-6.8,41.9c1.08.2,1.47-.46,1.47-1s0-1.86,0-3.65c-6,1.3-7.24-2.88-7.24-2.88A5.7,5.7,0,0,0,9,33.68c-1.95-1.33.15-1.31.15-1.31a4.52,4.52,0,0,1,3.29,2.22c1.92,3.29,5,2.34,6.26,1.79a4.61,4.61,0,0,1,1.37-2.88c-4.78-.54-9.8-2.38-9.8-10.62a8.29,8.29,0,0,1,2.22-5.77,7.68,7.68,0,0,1,.21-5.69s1.8-.58,5.91,2.2a20.46,20.46,0,0,1,10.76,0c4.11-2.78,5.91-2.2,5.91-2.2a7.74,7.74,0,0,1,.21,5.69,8.28,8.28,0,0,1,2.21,5.77c0,8.26-5,10.07-9.81,10.61a5.12,5.12,0,0,1,1.46,4c0,2.87,0,5.19,0,5.9s.39,1.24,1.48,1A21.5,21.5,0,0,0,24,2.5"
-                            />
-                            </svg>
-                        </a>   
-                        <a href="https://github.com/deividasdul">
-                            <p class="px-4">
-                                GitHub Page
-                            </p>   
-                        </a>                 
-                    </div>
+          <div class="w-full md:w-1/3  p-2 mb-4 font-mono">
+            <DevDiv
+              index={1}
+              fullName={"Deividas Dulinskas"}
+              github={"https://github.com/deividasdul"}
+            />
+          </div>
 
-                    <div class="flex items-center py-1">
-                        <a class="" href="#">
-                            <svg
-                            class="w-12 h-12"
-                            viewBox="0 0 48 48"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="black"
-                            >
-                            <g id="SVGRepo_iconCarrier">
-                                <defs>
-                                <style>{`.b{fill:black;}.c{fill:none;stroke:black;stroke-linecap:round;stroke-linejoin:round;}`}</style>
-                                </defs>
-                                <circle className="b" cx="15.64" cy="13.46" r="0.75" />
-                                <line className="c" x1="15.64" y1="16.93" x2="15.64" y2="31.91" />
-                                <path
-                                className="c"
-                                d="m33.11 31.91v-9.61a5.83 5.83 0 0 0-5.82-5.82 5.83 5.83 0 0 0-5.83 5.82v9.61"
-                                />
-                                <line className="c" x1="21.46" y1="22.3" x2="21.46" y2="16.93" />
-                                <path
-                                className="c"
-                                d="m40.5 5.5h-33a2 2 0 0 0-2 2v33a2 2 0 0 0 2 2h33a2 2 0 0 0 2-2v-33a2 2 0 0 0-2-2z"
-                                />
-                            </g>
-                            </svg>
-                        </a>   
-                        <a href="#">
-                            <p class="px-4">
-                                Linkedin
-                            </p>   
-                        </a>                 
-                    </div>
-                </div>
+          <div class="w-full md:w-1/3 p-2 mb-4 flex flex-col justify-center items-center">
+            <div class="">
+              <a class="" href="https://github.com/deividasdul/adc">
+                <svg
+                  class="w-12 h-12"
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="black"
+                >
+                  <path
+                    fill="none"
+                    stroke="white"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fillRule="evenodd"
+                    d="M24,2.5a21.5,21.5,0,0,0-6.8,41.9c1.08.2,1.47-.46,1.47-1s0-1.86,0-3.65c-6,1.3-7.24-2.88-7.24-2.88A5.7,5.7,0,0,0,9,33.68c-1.95-1.33.15-1.31.15-1.31a4.52,4.52,0,0,1,3.29,2.22c1.92,3.29,5,2.34,6.26,1.79a4.61,4.61,0,0,1,1.37-2.88c-4.78-.54-9.8-2.38-9.8-10.62a8.29,8.29,0,0,1,2.22-5.77,7.68,7.68,0,0,1,.21-5.69s1.8-.58,5.91,2.2a20.46,20.46,0,0,1,10.76,0c4.11-2.78,5.91-2.2,5.91-2.2a7.74,7.74,0,0,1,.21,5.69,8.28,8.28,0,0,1,2.21,5.77c0,8.26-5,10.07-9.81,10.61a5.12,5.12,0,0,1,1.46,4c0,2.87,0,5.19,0,5.9s.39,1.24,1.48,1A21.5,21.5,0,0,0,24,2.5"
+                  />
+                </svg>
+              </a>
             </div>
-            <div class="w-full md:w-1/3 p-2 mb-4 flex flex-col justify-center items-center">
-                <div class="">
-                    <a class="" href="https://github.com/deividasdul/adc">
-                        <svg class="w-12 h-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="black">
-                        <path
-                            fill="none"
-                            stroke="white"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            fillRule="evenodd"
-                            d="M24,2.5a21.5,21.5,0,0,0-6.8,41.9c1.08.2,1.47-.46,1.47-1s0-1.86,0-3.65c-6,1.3-7.24-2.88-7.24-2.88A5.7,5.7,0,0,0,9,33.68c-1.95-1.33.15-1.31.15-1.31a4.52,4.52,0,0,1,3.29,2.22c1.92,3.29,5,2.34,6.26,1.79a4.61,4.61,0,0,1,1.37-2.88c-4.78-.54-9.8-2.38-9.8-10.62a8.29,8.29,0,0,1,2.22-5.77,7.68,7.68,0,0,1,.21-5.69s1.8-.58,5.91,2.2a20.46,20.46,0,0,1,10.76,0c4.11-2.78,5.91-2.2,5.91-2.2a7.74,7.74,0,0,1,.21,5.69,8.28,8.28,0,0,1,2.21,5.77c0,8.26-5,10.07-9.81,10.61a5.12,5.12,0,0,1,1.46,4c0,2.87,0,5.19,0,5.9s.39,1.24,1.48,1A21.5,21.5,0,0,0,24,2.5"
-                        />
-                        </svg>
-                    </a>
-                </div>
-                <div class="">
-                    <p class="text-gray-100">
-                        Code
-                    </p>
-                </div>
+            <div class="">
+              <p class="text-gray-100">Code</p>
             </div>
-            <div class="w-full md:w-1/3  p-2 mb-4 font-mono">
-                <div class="bg-gray-200 p-4 rounded">
-                    <p class="pb-2 pl-1 font-bold text-lg ">
-                        Dev 2
-                    </p>
-                    <p class="pb-2 pl-1 ">
-                        Augustas Paužas
-                    </p>
-                    <div class="flex items-center py-1">
-                        <a class="" href="https://github.com/augustaspauzas">
-                            <svg class="w-12 h-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="black">
-                            <path
-                                fill="none"
-                                stroke="black"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                fillRule="evenodd"
-                                d="M24,2.5a21.5,21.5,0,0,0-6.8,41.9c1.08.2,1.47-.46,1.47-1s0-1.86,0-3.65c-6,1.3-7.24-2.88-7.24-2.88A5.7,5.7,0,0,0,9,33.68c-1.95-1.33.15-1.31.15-1.31a4.52,4.52,0,0,1,3.29,2.22c1.92,3.29,5,2.34,6.26,1.79a4.61,4.61,0,0,1,1.37-2.88c-4.78-.54-9.8-2.38-9.8-10.62a8.29,8.29,0,0,1,2.22-5.77,7.68,7.68,0,0,1,.21-5.69s1.8-.58,5.91,2.2a20.46,20.46,0,0,1,10.76,0c4.11-2.78,5.91-2.2,5.91-2.2a7.74,7.74,0,0,1,.21,5.69,8.28,8.28,0,0,1,2.21,5.77c0,8.26-5,10.07-9.81,10.61a5.12,5.12,0,0,1,1.46,4c0,2.87,0,5.19,0,5.9s.39,1.24,1.48,1A21.5,21.5,0,0,0,24,2.5"
-                            />
-                            </svg>
-                        </a>   
-                        <a href="https://github.com/augustaspauzas">
-                            <p class="px-4">
-                                GitHub Page
-                            </p>   
-                        </a>                 
-                    </div>
-
-                    <div class="flex items-center py-1">
-                        <a class="" href="#">
-                            <svg
-                            class="w-12 h-12"
-                            viewBox="0 0 48 48"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="black"
-                            >
-                            <g id="SVGRepo_iconCarrier">
-                                <defs>
-                                <style>{`.b{fill:black;}.c{fill:none;stroke:black;stroke-linecap:round;stroke-linejoin:round;}`}</style>
-                                </defs>
-                                <circle className="b" cx="15.64" cy="13.46" r="0.75" />
-                                <line className="c" x1="15.64" y1="16.93" x2="15.64" y2="31.91" />
-                                <path
-                                className="c"
-                                d="m33.11 31.91v-9.61a5.83 5.83 0 0 0-5.82-5.82 5.83 5.83 0 0 0-5.83 5.82v9.61"
-                                />
-                                <line className="c" x1="21.46" y1="22.3" x2="21.46" y2="16.93" />
-                                <path
-                                className="c"
-                                d="m40.5 5.5h-33a2 2 0 0 0-2 2v33a2 2 0 0 0 2 2h33a2 2 0 0 0 2-2v-33a2 2 0 0 0-2-2z"
-                                />
-                            </g>
-                            </svg>
-                        </a>   
-                        <a href="#">
-                            <p class="px-4">
-                                Linkedin
-                            </p>   
-                        </a>                 
-                    </div>
-                </div>
-            </div>
+          </div>
+          <div class="w-full md:w-1/3  p-2 mb-4 font-mono">
+            <DevDiv
+              index={2}
+              fullName={"Augustas Paužas"}
+              github={"https://github.com/augustaspauzas"}
+            />
+          </div>
         </div>
 
         <div class="">
-            <p class="text-center py-1">{(new Date().getFullYear())} <a href="/">ADC</a>. All rights reserved.</p>
+          <p class="text-center py-1">
+            {new Date().getFullYear()} <a href="/">ADC</a>. All rights reserved.
+          </p>
         </div>
-    </footer>
-
-  </>
+      </footer>
+    </>
+  );
 };
 
 export default Footer;
