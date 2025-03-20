@@ -2,13 +2,13 @@ import React from "react";
 
 const DevDiv = ({ index, fullName, github }) => {
   return (
-    <div class="bg-gray-200 p-4 rounded">
-      <p class="pb-2 pl-1 font-bold text-lg ">Dev {index}</p>
-      <p class="pb-2 pl-1 ">{fullName}</p>
-      <div class="flex items-center py-1">
-        <a class="" href={github}>
+    <div className="bg-gray-200 p-4 rounded">
+      <p className="pb-2 pl-1 font-bold text-lg ">Dev {index}</p>
+      <p className="pb-2 pl-1 ">{fullName}</p>
+      <div className="flex items-center py-1">
+        <a className="" href={github}>
           <svg
-            class="w-12 h-12"
+            className="w-12 h-12"
             viewBox="0 0 48 48"
             xmlns="http://www.w3.org/2000/svg"
             fill="black"
@@ -24,14 +24,14 @@ const DevDiv = ({ index, fullName, github }) => {
           </svg>
         </a>
         <a href={github}>
-          <p class="px-4">GitHub Page</p>
+          <p className="px-4">GitHub Page</p>
         </a>
       </div>
 
-      <div class="flex items-center py-1">
-        <a class="" href="#">
+      <div className="flex items-center py-1">
+        <a className="" href="#">
           <svg
-            class="w-12 h-12"
+            className="w-12 h-12"
             viewBox="0 0 48 48"
             xmlns="http://www.w3.org/2000/svg"
             fill="black"
@@ -55,7 +55,7 @@ const DevDiv = ({ index, fullName, github }) => {
           </svg>
         </a>
         <a href="#">
-          <p class="px-4">Linkedin</p>
+          <p className="px-4">LinkedIn</p>
         </a>
       </div>
     </div>

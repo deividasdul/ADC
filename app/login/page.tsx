@@ -1,42 +1,7 @@
 import React from "react";
 
-const page = () => {
-  return (
-    <div>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-      <h1>asd</h1>
-    </div>
-  );
+const Login = () => {
+  return <h1>Login</h1>;
 };
 
-export default page;
+export default Login;

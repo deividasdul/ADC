@@ -1,6 +1,20 @@
 import React from "react";
 import DevDiv from "../components/DevDiv";
 
+/* #FIXME: 
+  FIX COLORS
+  IF BACKGROUND DARK ( #1e2939 ) THEN:
+    BACKGROUND: #1e2939
+    TEXT: #ddf2ff
+
+  IF BACKGROUND LIGHT ( #ddf2ff ) THEN:
+    BACKGROUND: #ddf2ff
+    TEXT: #1e2939
+
+  ALSO 2 MORE COLORS THAT WORK WITH THE CHOSEN PALETTE:
+  #4b5668
+  #dca11d
+*/
 const Footer = () => {
   return (
     <>

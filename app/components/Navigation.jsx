@@ -27,6 +27,7 @@ const Navigation = () => {
             gap: 2,
           }}
         >
+          {/* TODO: Add logo */}
           <span style={{ flex: 1 }}>
             <ImageIcon fontSize={"large"} />
           </span>
