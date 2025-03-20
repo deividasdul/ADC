@@ -4,9 +4,9 @@ import DevDiv from "../components/DevDiv";
 const Footer = () => {
   return (
     <>
-      <footer class=" bg-gray-800 text-gray-100">
-        <div class="flex flex-wrap text-gray-900">
-          <div class="w-full md:w-1/3  p-2 mb-4 font-mono">
+      <footer className=" bg-gray-800 text-gray-100">
+        <div className="flex flex-wrap text-gray-900">
+          <div className="w-full md:w-1/3  p-2 mb-4 font-mono">
             <DevDiv
               index={1}
               fullName={"Deividas Dulinskas"}
@@ -14,11 +14,11 @@ const Footer = () => {
             />
           </div>
 
-          <div class="w-full md:w-1/3 p-2 mb-4 flex flex-col justify-center items-center">
-            <div class="">
-              <a class="" href="https://github.com/deividasdul/adc">
+          <div className="w-full md:w-1/3 p-2 mb-4 flex flex-col justify-center items-center">
+            <div className="">
+              <a className="" href="https://github.com/deividasdul/adc">
                 <svg
-                  class="w-12 h-12"
+                  className="w-12 h-12"
                   viewBox="0 0 48 48"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="black"
@@ -34,11 +34,11 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            <div class="">
-              <p class="text-gray-100">Code</p>
+            <div className="">
+              <p className="text-gray-100">Code</p>
             </div>
           </div>
-          <div class="w-full md:w-1/3  p-2 mb-4 font-mono">
+          <div className="w-full md:w-1/3  p-2 mb-4 font-mono">
             <DevDiv
               index={2}
               fullName={"Augustas Paužas"}
@@ -47,8 +47,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div class="">
-          <p class="text-center py-1">
+        <div className="">
+          <p className="text-center py-1">
             {new Date().getFullYear()} <a href="/">ADC</a>. All rights reserved.
           </p>
         </div>
