@@ -1,7 +1,12 @@
 import React from "react";
 
+import LoginDiv from "../components/LoginDiv";
+import { div } from "three/tsl";
+
 const Login = () => {
-  return <h1>Login</h1>;
+  return <>
+  <LoginDiv />
+  </>
 };
 
 export default Login;
