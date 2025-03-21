@@ -10,6 +10,7 @@ import Renderer from "./components/Renderer";
 import Earth from "./components/models/Earth";
 
 import bg from "../public/images/sky.jpg";
+import Moon from "./components/models/Moon";
 
 const Light = () => {
   return (
@@ -36,6 +37,7 @@ const Home = () => {
         <Renderer>
           <Light />
           <Earth />
+          <Moon />
           <OrbitControls enableZoom={false} enablePan={false} />
         </Renderer>
       </Box>

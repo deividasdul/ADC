@@ -6,10 +6,12 @@ import React, { JSX, useRef } from "react";
 import * as THREE from "three";
 
 const Earth = (): JSX.Element => {
-  const earthTexture = useTexture("/images/textures/earth.jpg");
+  const earthTexture = useTexture("/images/textures/earth1.jpg");
   const earthRef = useRef<THREE.Mesh | null>(null);
 
-  const cloudTexture = useTexture("/images/textures/clouds.jpg");
+  // const earthNightTexture = useTexture("/images/textures/earth_night.jpg");
+
+  const cloudTexture = useTexture("/images/textures/clouds1.jpg");
   const cloudsRef = useRef<THREE.Mesh | null>(null);
 
   useFrame((status, delta) => {
@@ -18,14 +20,14 @@ const Earth = (): JSX.Element => {
   });
 
   return (
-    <group>
+    <group scale={0.5}>
       <mesh ref={earthRef}>
         <sphereGeometry args={[1.5, 64, 32]} />
         <meshStandardMaterial map={earthTexture} />
       </mesh>
       <mesh ref={cloudsRef}>
         <sphereGeometry args={[1.51, 64, 32]} />
-        <meshStandardMaterial map={cloudTexture} transparent opacity={0.5} />
+        <meshStandardMaterial map={cloudTexture} transparent opacity={0.45} />
       </mesh>
     </group>
   );
