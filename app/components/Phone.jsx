@@ -70,7 +70,7 @@ const Phone = (props) => {
               geometry={nodes.Object_13.geometry}
               material={materials.Display}
             >
-              <meshMatcapMaterial map={phoneWallpaer} />
+              {/* <meshMatcapMaterial map={phoneWallpaer} /> */}
             </mesh>
             <mesh
               castShadow
@@ -150,7 +150,7 @@ const Phone = (props) => {
               geometry={nodes.Object_26.geometry}
               material={materials.Display}
             >
-              <meshMatcapMaterial map={phoneWallpaer} />
+              {/* <meshMatcapMaterial map={phoneWallpaer} /> */}
             </mesh>
             <mesh
               castShadow
