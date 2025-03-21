@@ -1,5 +1,6 @@
-import React from "react";
-import DevDiv from "../components/DevDiv";
+import React, { JSX } from "react";
+import DevDiv from "./DevDiv";
+import Link from "next/link";
 
 /* #FIXME: 
   FIX COLORS
@@ -15,7 +16,7 @@ import DevDiv from "../components/DevDiv";
   #4b5668
   #dca11d
 */
-const Footer = () => {
+const Footer = (): JSX.Element => {
   return (
     <>
       <footer className=" bg-gray-800 text-gray-100">
@@ -63,7 +64,8 @@ const Footer = () => {
 
         <div className="">
           <p className="text-center py-1">
-            {new Date().getFullYear()} <a href="/">ADC</a>. All rights reserved.
+            {new Date().getFullYear()} <Link href={"/"}>ADC</Link>. All rights
+            reserved.
           </p>
         </div>
       </footer>
