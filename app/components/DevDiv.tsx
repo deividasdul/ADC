@@ -1,6 +1,12 @@
-import React from "react";
+import React, { JSX } from "react";
 
-const DevDiv = ({ index, fullName, github }) => {
+type Developer = {
+  index: number;
+  fullName: string;
+  github: string;
+};
+
+const DevDiv = ({ index, fullName, github }: Developer): JSX.Element => {
   return (
     <div className="bg-gray-200 p-4 rounded">
       <p className="pb-2 pl-1 font-bold text-lg ">Dev {index}</p>

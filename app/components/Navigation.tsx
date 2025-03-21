@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { JSX, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -11,12 +11,12 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ImageIcon from "@mui/icons-material/Image";
-import NavItems from "../components/NavItems";
+import NavItems from "./NavItems";
 
-const Navigation = () => {
+const Navigation = (): JSX.Element => {
   const theme = useTheme();
   const smallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <>
@@ -41,7 +41,7 @@ const Navigation = () => {
               <MenuIcon htmlColor="white" />
             </IconButton>
           ) : (
-            <NavItems color={"#DDF2FF"} />
+            <NavItems color={"#DDF2FF"} onClick={setIsOpen} />
           )}
         </Toolbar>
       </AppBar>
@@ -54,7 +54,7 @@ const Navigation = () => {
             backgroundColor: "#DDF2FF",
           }}
         >
-          {<NavItems color={"#1E2939"} />}
+          {<NavItems color={"#1E2939"} onClick={setIsOpen} />}
         </Container>
       )}
     </>
