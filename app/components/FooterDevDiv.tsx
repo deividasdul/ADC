@@ -6,7 +6,7 @@ type Developer = {
   github: string;
 };
 
-const DevDiv = ({ index, fullName, github }: Developer): JSX.Element => {
+const FooterDevDiv = ({ index, fullName, github }: Developer): JSX.Element => {
   return (
     <div className="bg-gray-200 p-4 rounded">
       <p className="pb-2 pl-1 font-bold text-lg ">Dev {index}</p>
@@ -68,4 +68,4 @@ const DevDiv = ({ index, fullName, github }: Developer): JSX.Element => {
   );
 };
 
-export default DevDiv;
+export default FooterDevDiv;

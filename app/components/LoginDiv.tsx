@@ -4,7 +4,11 @@ import React from "react";
 import { useState } from "react";
 import LoginUsingApps from "./LoginUsingApps";
 
-const LoginDiv: React.FC = () => {
+type LoginDivProps = {
+  loadLoginPage: boolean;
+};
+
+const LoginDiv: React.FC <LoginDivProps> = ({ loadLoginPage }) => {
 
   {/*  //xddddddddddddddddddddddddd
   const handleRegisterFormLoadClick = () => {
@@ -36,7 +40,7 @@ const LoginDiv: React.FC = () => {
   };
   */}
 
-  const [isLoginVisible, setIsLoginVisible] = useState(true);
+  const [isLoginVisible, setIsLoginVisible] = useState(loadLoginPage); // if false loads register first
   const handleLoginFormLoadClick = () => {
     setIsLoginVisible(false);
   };
@@ -45,6 +49,7 @@ const LoginDiv: React.FC = () => {
   };
 
   return (
+    
     <div className="flex opacity-100 transition-opacity duration-300 ease-in-out text-black pt-4 sm:pt-[20vh] justify-center items-center drop-shadow-2xl">
       <div className="sm:flex w-full lg:w-2/3 xl:w-1/2 py-1 px-1 pr-2 rounded">
         {/* Left Side */}

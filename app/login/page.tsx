@@ -5,7 +5,12 @@ import { div } from "three/tsl";
 
 const Login = () => {
   return <>
-  <LoginDiv />
+
+    <LoginDiv 
+
+       loadLoginPage={true}
+    />
+
   </>
 };
 

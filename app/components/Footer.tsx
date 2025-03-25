@@ -1,5 +1,5 @@
 import React, { JSX } from "react";
-import DevDiv from "./DevDiv";
+import FooterDevDiv from "./FooterDevDiv";
 import Link from "next/link";
 
 /* #FIXME: 
@@ -22,7 +22,7 @@ const Footer = (): JSX.Element => {
       <footer className=" bg-gray-800 text-gray-100 drop-shadow-xl">
         <div className="flex flex-wrap text-gray-900">
           <div className="w-full md:w-1/3  p-2 mb-4 font-mono">
-            <DevDiv
+            <FooterDevDiv
             
               index={1}
               fullName={"Deividas Dulinskas"}
@@ -55,7 +55,7 @@ const Footer = (): JSX.Element => {
             </div>
           </div>
           <div className="w-full md:w-1/3  p-2 mb-4 font-mono">
-            <DevDiv
+            <FooterDevDiv
               index={2}
               fullName={"Augustas Paužas"}
               github={"https://github.com/augustaspauzas"}
