@@ -23,7 +23,6 @@ const Footer = (): JSX.Element => {
         <div className="flex flex-wrap text-gray-900">
           <div className="w-full md:w-1/3  p-2 mb-4 font-mono">
             <DevDiv
-            
               index={1}
               fullName={"Deividas Dulinskas"}
               github={"https://github.com/deividasdul"}

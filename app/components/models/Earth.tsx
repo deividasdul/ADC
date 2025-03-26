@@ -20,7 +20,7 @@ const Earth = (): JSX.Element => {
   });
 
   return (
-    <group scale={0.5}>
+    <group scale={1}>
       <mesh ref={earthRef}>
         <sphereGeometry args={[1.5, 64, 32]} />
         <meshStandardMaterial map={earthTexture} />

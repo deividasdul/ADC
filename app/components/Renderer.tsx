@@ -1,5 +1,6 @@
-import React, { ReactNode } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { ReactNode, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { PerspectiveCamera } from "@react-three/drei";
 
 type Props = {
   children: ReactNode;
