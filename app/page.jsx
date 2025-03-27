@@ -70,15 +70,6 @@ const Home = () => {
 
     const objectDistance = 4;
 
-    // mesh1.position.x = 2;
-    // mesh1.position.y = -objectDistance * 0;
-
-    // mesh2.position.x = -2;
-    // mesh2.position.y = -objectDistance * 1;
-
-    // mesh3.position.x = 2;
-    // mesh3.position.y = -objectDistance * 2;
-
     const objects = [mesh1, mesh2, mesh3];
 
     for (let i = 0; i < objects.length; i++) {
@@ -130,7 +121,7 @@ const Home = () => {
       100
     );
 
-    camera.position.set(0, 0, 5);
+    camera.position.set(0, 2, 5);
 
     cameraGroup.add(camera);
 
@@ -150,15 +141,19 @@ const Home = () => {
     window.addEventListener("scroll", () => {
       scrollY = window.scrollY;
 
+      console.log(scrollY / sizes.height);
+
       const newSection = Math.round(scrollY / sizes.height);
 
-      //   if (currentSection !== newSection) {
-      //     gsap.to(objects[newSection].rotation, {
-      //       ease: "power2.inOut",
-      //       duration: 2,
-      //       y: "+= 10",
-      //     });
-      //   }
+      if (newSection != currentSection) {
+        currentSection = newSection;
+
+        gsap.to(objects[currentSection].rotation, {
+          x: (Math.random() - 0.5) * 10,
+          z: (Math.random() - 0.5) * 10,
+          duration: 1.5,
+        });
+      }
     });
 
     const cursor = {
@@ -172,9 +167,12 @@ const Home = () => {
     });
 
     const clock = new THREE.Clock();
+    var currentTime = 0;
 
     const tick = () => {
       const elapsedTime = clock.getElapsedTime();
+      const deltaTime = elapsedTime - currentTime;
+      currentTime = elapsedTime;
 
       camera.position.y = -(scrollY / sizes.height) * objectDistance;
 
@@ -182,8 +180,8 @@ const Home = () => {
       cameraGroup.position.y = -cursor.y * 0.5;
 
       for (let i = 0; i < objects.length; i++) {
-        objects[i].rotation.x = elapsedTime * 0.2;
-        objects[i].rotation.y = elapsedTime * 0.4;
+        objects[i].rotation.x += deltaTime * 0.3;
+        objects[i].rotation.y += deltaTime * 0.3;
       }
 
       renderer.render(scene, camera);
