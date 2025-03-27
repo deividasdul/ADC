@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* BACKGROUND: #1e2939
+   TEXT: #ddf2ff
+ #4b5668
+ #dca11d */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

@@ -8,9 +8,9 @@ type LoginDivProps = {
   loadLoginPage: boolean;
 };
 
-const LoginDiv: React.FC <LoginDivProps> = ({ loadLoginPage }) => {
-
-  {/*  //xddddddddddddddddddddddddd
+const LoginDiv: React.FC<LoginDivProps> = ({ loadLoginPage }) => {
+  {
+    /*  //xddddddddddddddddddddddddd
   const handleRegisterFormLoadClick = () => {
     const leftForm = document.getElementById("LeftForm");
     const leftHelp = document.getElementById("LeftHelp");
@@ -38,7 +38,8 @@ const LoginDiv: React.FC <LoginDivProps> = ({ loadLoginPage }) => {
       leftHelp.classList.add("hidden");
     }
   };
-  */}
+  */
+  }
 
   const [isLoginVisible, setIsLoginVisible] = useState(loadLoginPage); // if false loads register first
   const handleLoginFormLoadClick = () => {
@@ -49,13 +50,15 @@ const LoginDiv: React.FC <LoginDivProps> = ({ loadLoginPage }) => {
   };
 
   return (
-    
     <div className="flex opacity-100 transition-opacity duration-300 ease-in-out text-black pt-4 sm:pt-[20vh] justify-center items-center drop-shadow-2xl">
       <div className="sm:flex w-full lg:w-2/3 xl:w-1/2 py-1 px-1 pr-2 rounded">
         {/* Left Side */}
         <div className="w-full rounded-t sm:rounded-none sm:rounded-l md:w-1/2 bg-red-300 p-1">
-          <div id="LeftForm"  className={isLoginVisible ? "" : "hidden"} >
-            <form className="flex p-2 pt-4 sm:pt-8 pb-4 sm:pb-8 flex-col" action="">
+          <div id="LeftForm" className={isLoginVisible ? "" : "hidden"}>
+            <form
+              className="flex p-2 pt-4 sm:pt-8 pb-4 sm:pb-8 flex-col"
+              action=""
+            >
               <label htmlFor="name">Name</label>
               <input
                 className="bg-white rounded px-1 mb-4 py-2"
@@ -80,14 +83,20 @@ const LoginDiv: React.FC <LoginDivProps> = ({ loadLoginPage }) => {
                   Stay Logged in
                 </label>
               </div>
-              <button type="submit" className="bg-white mt-2 sm:mt-8 p-1 py-3 rounded hover:bg-red-100">
+              <button
+                type="submit"
+                className="bg-white mt-2 sm:mt-8 p-1 py-3 rounded hover:bg-red-100"
+              >
                 Login
               </button>
             </form>
           </div>
 
           <div id="LeftHelp" className={isLoginVisible ? "hidden" : ""}>
-            <div id="CreateAccount" className="flex flex-col w-full items-center">
+            <div
+              id="CreateAccount"
+              className="flex flex-col w-full items-center"
+            >
               <LoginUsingApps />
               <p className="font-bold p-2 text-xl">Already Have an Account?</p>
               <button
@@ -102,9 +111,12 @@ const LoginDiv: React.FC <LoginDivProps> = ({ loadLoginPage }) => {
         </div>
 
         {/* Right Side */}
-        <div  className="w-full rounded-b sm:rounded-none sm:rounded-r md:w-1/2 bg-blue-300 p-1">
+        <div className="w-full rounded-b sm:rounded-none sm:rounded-r md:w-1/2 bg-blue-300 p-1">
           <div id="RightForm" className={isLoginVisible ? "hidden" : ""}>
-            <form className="flex p-2 pt-4 sm:pt-8 pb-4 sm:pb-8 flex-col" action="">
+            <form
+              className="flex p-2 pt-4 sm:pt-8 pb-4 sm:pb-8 flex-col"
+              action=""
+            >
               <label htmlFor="name">Name</label>
               <input
                 className="bg-white rounded px-1 mb-4 py-2"
@@ -118,7 +130,7 @@ const LoginDiv: React.FC <LoginDivProps> = ({ loadLoginPage }) => {
                 type="text"
                 name="email"
                 defaultValue=""
-              />              
+              />
               <label htmlFor="password">Password</label>
               <input
                 className="bg-white rounded px-1 mb-4 py-2"
@@ -131,16 +143,21 @@ const LoginDiv: React.FC <LoginDivProps> = ({ loadLoginPage }) => {
                 type="password"
                 name="passwordRepeat"
               />
-              <button type="submit" className="bg-white mt-2 sm:mt-8 p-1 py-3 rounded hover:bg-blue-100">
+              <button
+                type="submit"
+                className="bg-white mt-2 sm:mt-8 p-1 py-3 rounded hover:bg-blue-100"
+              >
                 Register
               </button>
             </form>
           </div>
 
           <div id="RightHelp" className={isLoginVisible ? "" : "hidden"}>
-            <div  className="flex flex-col w-full items-center">
+            <div className="flex flex-col w-full items-center">
               <LoginUsingApps />
-              <p className="font-bold p-2 text-xl">Don't Have an Account?</p>
+              <p className="font-bold p-2 text-xl">
+                Don&apos;t Have an Account?
+              </p>
               <button
                 id="CreateAccountButton"
                 className="w-50 font-lg px-4 py-2 mt-2 mb-2 sm:mb-8 bg-red-200 rounded-lg hover:bg-red-300"
@@ -148,9 +165,8 @@ const LoginDiv: React.FC <LoginDivProps> = ({ loadLoginPage }) => {
               >
                 Register
               </button>
-            </div>            
+            </div>
           </div>
-
         </div>
       </div>
     </div>

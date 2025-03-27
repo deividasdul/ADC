@@ -1,12 +1,20 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import "./styles/style.css";
+import "../public/styles/style.css";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 
 const Home = () => {
   useEffect(() => {
+    const gltfLoader = new GLTFLoader();
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath("/draco/");
+    gltfLoader.setDRACOLoader(dracoLoader);
     const textureLoader = new THREE.TextureLoader();
     const particleTexture = textureLoader.load("/textures/9.png");
 
@@ -35,44 +43,54 @@ const Home = () => {
     const ambientLight = new THREE.AmbientLight("white", 0.3);
     scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight("white", 1);
+    const directionalLight = new THREE.DirectionalLight("white", 3);
     directionalLight.position.set(1, 1, 0);
     scene.add(directionalLight);
 
     // Objects
 
-    const mesh1 = new THREE.Mesh(
-      new THREE.TorusGeometry(10, 2, 16),
-      new THREE.MeshStandardMaterial({ color: "white" })
-    );
-
-    mesh1.scale.set(0.05, 0.05, 0.05);
-
-    scene.add(mesh1);
-
-    const mesh2 = new THREE.Mesh(
-      new THREE.TorusGeometry(10, 2, 16),
-      new THREE.MeshStandardMaterial({ color: "white" })
-    );
-
-    mesh2.scale.set(0.05, 0.05, 0.05);
-
-    scene.add(mesh2);
-
-    const mesh3 = new THREE.Mesh(
-      new THREE.TorusGeometry(10, 2, 16),
-      new THREE.MeshStandardMaterial({ color: "white" })
-    );
-
-    mesh3.scale.set(0.05, 0.05, 0.05);
-
-    scene.add(mesh3);
-
+    var objects = [];
     const objectDistance = 4;
 
-    const objects = [mesh1, mesh2, mesh3];
+    var phoneMixer = null;
+    gltfLoader.load("/models/phone/scene.gltf", (gltf) => {
+      gltf.scene.position.set(2, 0, 0);
+      gltf.scene.scale.set(0.8, 0.8, 0.8);
+      scene.add(gltf.scene);
 
-    for (let i = 0; i < objects.length; i++) {
+      phoneMixer = new THREE.AnimationMixer(gltf.scene);
+      const action = phoneMixer.clipAction(gltf.animations[0]);
+      action.play();
+
+      objects.push(gltf.scene);
+    });
+
+    gltfLoader.load("/models/handshake/scene.gltf", (gltf) => {
+      gltf.scene.scale.set(0.3, 0.3, 0.3);
+      gltf.scene.rotation.set(0, Math.PI * 0.5, 0);
+      gltf.scene.position.set(-2, -objectDistance, 0);
+      scene.add(gltf.scene);
+
+      objects.push(gltf.scene);
+    });
+
+    var letterMixer = null;
+    gltfLoader.load("/models/letter/scene.gltf", (gltf) => {
+      gltf.scene.rotation.set(Math.PI * 0.5, 0, 0);
+
+      gltf.scene.scale.set(4, 4, 4);
+      gltf.scene.position.set(2, -objectDistance * 2, 0);
+      scene.add(gltf.scene);
+      letterMixer = new THREE.AnimationMixer(gltf.scene);
+      const action = letterMixer.clipAction(gltf.animations[0]);
+      action.play();
+
+      objects.push(gltf.scene);
+    });
+
+    for (let i = 1; i < objects.length; i++) {
+      console.log(objects);
+
       objects[i].position.y = -objectDistance * i;
       objects[i].position.x =
         i % 2 == 0 ? (objects[i].position.x = 2) : (objects[i].position.x = -2);
@@ -135,27 +153,6 @@ const Home = () => {
 
     // Animation
 
-    let scrollY = window.scrollY;
-    let currentSection = 0;
-
-    window.addEventListener("scroll", () => {
-      scrollY = window.scrollY;
-
-      console.log(scrollY / sizes.height);
-
-      const newSection = Math.round(scrollY / sizes.height);
-
-      if (newSection != currentSection) {
-        currentSection = newSection;
-
-        gsap.to(objects[currentSection].rotation, {
-          x: (Math.random() - 0.5) * 10,
-          z: (Math.random() - 0.5) * 10,
-          duration: 1.5,
-        });
-      }
-    });
-
     const cursor = {
       x: 0,
       y: 0,
@@ -174,15 +171,13 @@ const Home = () => {
       const deltaTime = elapsedTime - currentTime;
       currentTime = elapsedTime;
 
+      if (phoneMixer) phoneMixer.update(deltaTime);
+      if (letterMixer) letterMixer.update(deltaTime);
+
       camera.position.y = -(scrollY / sizes.height) * objectDistance;
 
       cameraGroup.position.x = cursor.x * 0.5;
       cameraGroup.position.y = -cursor.y * 0.5;
-
-      for (let i = 0; i < objects.length; i++) {
-        objects[i].rotation.x += deltaTime * 0.3;
-        objects[i].rotation.y += deltaTime * 0.3;
-      }
 
       renderer.render(scene, camera);
 
@@ -192,13 +187,56 @@ const Home = () => {
     tick();
   });
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  const firstTitle = useRef();
+  const secondTitle = useRef();
+  const thirdTitle = useRef();
+
+  useGSAP(() => {
+    gsap.to(firstTitle.current, {
+      x: 360,
+      y: 180,
+      duration: 2,
+      scrollTrigger: {
+        trigger: firstTitle.current,
+        start: "top 80%",
+        end: "top 50%",
+      },
+    });
+
+    gsap.to(secondTitle.current, {
+      x: -360,
+      y: 180,
+      duration: 2,
+      scrollTrigger: {
+        trigger: secondTitle.current,
+        start: "top 80%",
+        end: "top 50%",
+      },
+    });
+
+    gsap.to(thirdTitle.current, {
+      x: 360,
+      y: 180,
+      duration: 2,
+      scrollTrigger: {
+        trigger: thirdTitle.current,
+        start: "top 80%",
+        end: "top 50%",
+      },
+    });
+  }, []);
+
   return (
     <>
       <canvas className="webgl"></canvas>
 
       <div className="box">
         <section className="section">
-          <h1 className="title">CHAT ANONYMOUSLY</h1>
+          <h1 ref={firstTitle} id="first" className="title">
+            CHAT ANONYMOUSLY
+          </h1>
           <p className="text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
@@ -207,7 +245,9 @@ const Home = () => {
 
       <div className="box">
         <section className="section">
-          <h1 className="title">USE FREE OF CHARGE</h1>
+          <h1 ref={secondTitle} id="2" className="title">
+            USE FREE OF CHARGE
+          </h1>
           <p className="text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
@@ -216,7 +256,9 @@ const Home = () => {
 
       <div className="box">
         <section className="section">
-          <h1 className="title">STAY IN TOUCH</h1>
+          <h1 ref={thirdTitle} id="3" className="title">
+            STAY IN TOUCH
+          </h1>
           <p className="text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>

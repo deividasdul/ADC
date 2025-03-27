@@ -2,20 +2,6 @@ import React, { JSX } from "react";
 import FooterDevDiv from "./FooterDevDiv";
 import Link from "next/link";
 
-/* #FIXME: 
-  FIX COLORS
-  IF BACKGROUND DARK ( #1e2939 ) THEN:
-    BACKGROUND: #1e2939
-    TEXT: #ddf2ff
-
-  IF BACKGROUND LIGHT ( #ddf2ff ) THEN:
-    BACKGROUND: #ddf2ff
-    TEXT: #1e2939
-
-  ALSO 2 MORE COLORS THAT WORK WITH THE CHOSEN PALETTE:
-  #4b5668
-  #dca11d
-*/
 const Footer = (): JSX.Element => {
   return (
     <>
@@ -53,6 +39,7 @@ const Footer = (): JSX.Element => {
               <p className="text-gray-100">Code</p>
             </div>
           </div>
+
           <div className="w-full md:w-1/3  p-2 mb-4 font-mono">
             <FooterDevDiv
               index={2}
