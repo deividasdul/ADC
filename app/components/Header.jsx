@@ -29,6 +29,8 @@ const Header = () => {
 
       <div className="flex gap-8 font-bold text-2xl">
         <NavItem path={"/"} label={"Home"} />
+        <NavItem path={"/profile"} label={"Profile"} />
+        <NavItem path={"/coms"} label={"Chat"} />
         <NavItem path={"/login"} label={"Login"} />
         <NavItem path={"/register"} label={"Register"} />
       </div>
