@@ -20,7 +20,7 @@ const NavItem = ({ path, label }) => {
 
 const Header = () => {
   return (
-    <div className="flex items-center bg-gray-950 p-8">
+    <div className="flex items-center drop-shadow-xl bg-gray-950 p-8">
       <div className="basis-full">
         <a href="/">
           <img className="w-64" src="/ADC/adc-logo.png" alt="ADC Logo" />

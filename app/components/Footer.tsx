@@ -5,9 +5,9 @@ import Link from "next/link";
 const Footer = (): JSX.Element => {
   return (
     <>
-      <footer className=" bg-gray-800 text-gray-100 drop-shadow-xl">
-        <div className="flex flex-wrap text-gray-900">
-          <div className="w-full md:w-1/3  p-2 mb-4 font-mono">
+      <footer className=" bg-gray-950 drop-shadow-xl">
+        <div className="flex flex-wrap text-black">
+          <div className="w-full md:w-1/3 p-4">
             <FooterDevDiv
               index={1}
               fullName={"Deividas Dulinskas"}
@@ -17,7 +17,11 @@ const Footer = (): JSX.Element => {
 
           <div className="w-full md:w-1/3 p-2 mb-4 flex flex-col justify-center items-center">
             <div className="">
-              <a className="" href="https://github.com/deividasdul/adc">
+              <a
+                target="_blank"
+                className=""
+                href="https://github.com/deividasdul/adc"
+              >
                 <svg
                   className="w-12 h-12"
                   viewBox="0 0 48 48"
@@ -26,7 +30,7 @@ const Footer = (): JSX.Element => {
                 >
                   <path
                     fill="none"
-                    stroke="white"
+                    stroke="green"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     fillRule="evenodd"
@@ -36,11 +40,15 @@ const Footer = (): JSX.Element => {
               </a>
             </div>
             <div className="">
-              <p className="text-gray-100">Code</p>
+              <p className="text-green-500">
+                <a target="_blank" href="https://github.com/deividasdul/adc">
+                  Code
+                </a>
+              </p>
             </div>
           </div>
 
-          <div className="w-full md:w-1/3  p-2 mb-4 font-mono">
+          <div className="w-full md:w-1/3 p-4">
             <FooterDevDiv
               index={2}
               fullName={"Augustas Paužas"}
@@ -50,7 +58,7 @@ const Footer = (): JSX.Element => {
         </div>
 
         <div className="">
-          <p className="text-center py-1">
+          <p className="text-center text-green-500 py-4">
             {new Date().getFullYear()} <Link href={"/"}>ADC</Link>. All rights
             reserved.
           </p>

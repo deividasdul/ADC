@@ -112,7 +112,7 @@ const page = () => {
     const starsMaterial = new THREE.ShaderMaterial({
       uniforms: {
         uTime: { value: 0 },
-        uSize: { value: 100.0 * renderer.getPixelRatio() },
+        uSize: { value: 50.0 * renderer.getPixelRatio() },
       },
       vertexShader: starVertexShader,
       vertexColors: true,

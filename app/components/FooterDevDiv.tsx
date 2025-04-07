@@ -8,7 +8,7 @@ type Developer = {
 
 const FooterDevDiv = ({ index, fullName, github }: Developer): JSX.Element => {
   return (
-    <div className="bg-gray-200 p-4 rounded">
+    <div className="bg-gray-900 text-green-500 p-4 rounded">
       <p className="pb-2 pl-1 font-bold text-lg ">Dev {index}</p>
       <p className="pb-2 pl-1 ">{fullName}</p>
       <div className="flex items-center py-1">
@@ -21,7 +21,7 @@ const FooterDevDiv = ({ index, fullName, github }: Developer): JSX.Element => {
           >
             <path
               fill="none"
-              stroke="black"
+              stroke="green"
               strokeLinecap="round"
               strokeLinejoin="round"
               fillRule="evenodd"
@@ -44,7 +44,7 @@ const FooterDevDiv = ({ index, fullName, github }: Developer): JSX.Element => {
           >
             <g id="SVGRepo_iconCarrier">
               <defs>
-                <style>{`.b{fill:black;}.c{fill:none;stroke:black;stroke-linecap:round;stroke-linejoin:round;}`}</style>
+                <style>{`.b{fill:black;}.c{fill:none;stroke:green;stroke-linecap:round;stroke-linejoin:round;}`}</style>
               </defs>
               <circle className="b" cx="15.64" cy="13.46" r="0.75" />
               <line className="c" x1="15.64" y1="16.93" x2="15.64" y2="31.91" />
