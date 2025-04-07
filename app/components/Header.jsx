@@ -4,9 +4,21 @@ import React from "react";
 
 import { usePathname } from "next/navigation";
 
-const Header = () => {
+const NavItem = ({ path, label }) => {
   const pathName = usePathname();
+  return (
+    <a
+      className={`${
+        pathName === path && `text-green-500`
+      } hover:text-green-500 duration-300 ease-in-out `}
+      href={path}
+    >
+      {label}
+    </a>
+  );
+};
 
+const Header = () => {
   return (
     <div className="flex items-center bg-gray-950 p-8">
       <div className="basis-full">
@@ -16,30 +28,9 @@ const Header = () => {
       </div>
 
       <div className="flex gap-8 font-bold text-2xl">
-        <a
-          className={`${
-            pathName === "/" && `text-green-500`
-          } hover:text-green-500 duration-300 ease-in-out `}
-          href="/"
-        >
-          Home
-        </a>
-        <a
-          className={`${
-            pathName === "/login" && `text-green-500`
-          } hover:text-green-500 duration-300 ease-in-out `}
-          href="/login"
-        >
-          Login
-        </a>
-        <a
-          className={`${
-            pathName === "/register" && `text-green-500`
-          } hover:text-green-500 duration-300 ease-in-out `}
-          href="/register"
-        >
-          Register
-        </a>
+        <NavItem path={"/"} label={"Home"} />
+        <NavItem path={"/login"} label={"Login"} />
+        <NavItem path={"/register"} label={"Register"} />
       </div>
     </div>
   );
