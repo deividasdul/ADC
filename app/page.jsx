@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import "../public/styles/style.css";
 import gsap from "gsap";
@@ -49,52 +49,47 @@ const Home = () => {
 
     // Objects
 
-    var objects = [];
     const objectDistance = 4;
 
+    var objectsToTest = [];
     var phoneMixer = null;
+    var phone;
     gltfLoader.load("/models/phone/scene.gltf", (gltf) => {
       gltf.scene.position.set(2, 0, 0);
       gltf.scene.scale.set(0.8, 0.8, 0.8);
       scene.add(gltf.scene);
 
+      phone = gltf.scene;
+      objectsToTest.push(phone);
       phoneMixer = new THREE.AnimationMixer(gltf.scene);
       const action = phoneMixer.clipAction(gltf.animations[0]);
       action.play();
-
-      objects.push(gltf.scene);
     });
 
+    var handshake;
     gltfLoader.load("/models/handshake/scene.gltf", (gltf) => {
       gltf.scene.scale.set(0.3, 0.3, 0.3);
       gltf.scene.rotation.set(0, Math.PI * 0.5, 0);
       gltf.scene.position.set(-2, -objectDistance, 0);
+      objectsToTest.push(handshake);
+      handshake = gltf.scene;
       scene.add(gltf.scene);
-
-      objects.push(gltf.scene);
     });
 
     var letterMixer = null;
+    var letter;
     gltfLoader.load("/models/letter/scene.gltf", (gltf) => {
       gltf.scene.rotation.set(Math.PI * 0.5, 0, 0);
 
       gltf.scene.scale.set(4, 4, 4);
       gltf.scene.position.set(2, -objectDistance * 2, 0);
+      letter = gltf.scene;
       scene.add(gltf.scene);
+      objectsToTest.push(letter);
       letterMixer = new THREE.AnimationMixer(gltf.scene);
       const action = letterMixer.clipAction(gltf.animations[0]);
       action.play();
-
-      objects.push(gltf.scene);
     });
-
-    for (let i = 1; i < objects.length; i++) {
-      console.log(objects);
-
-      objects[i].position.y = -objectDistance * i;
-      objects[i].position.x =
-        i % 2 == 0 ? (objects[i].position.x = 2) : (objects[i].position.x = -2);
-    }
 
     // Particles
 
@@ -166,6 +161,8 @@ const Home = () => {
     const clock = new THREE.Clock();
     var currentTime = 0;
 
+    const raycaster = new THREE.Raycaster();
+
     const tick = () => {
       const elapsedTime = clock.getElapsedTime();
       const deltaTime = elapsedTime - currentTime;
@@ -173,6 +170,8 @@ const Home = () => {
 
       if (phoneMixer) phoneMixer.update(deltaTime);
       if (letterMixer) letterMixer.update(deltaTime);
+
+      raycaster.setFromCamera(new THREE.Vector2(cursor.x, cursor.y), camera);
 
       camera.position.y = -(scrollY / sizes.height) * objectDistance;
 
@@ -226,7 +225,7 @@ const Home = () => {
         end: "top 50%",
       },
     });
-  }, []);
+  });
 
   return (
     <>
