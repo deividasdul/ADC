@@ -219,7 +219,7 @@ const page = () => {
 
   return (
     <>
-      <canvas className="webgl fixed top-30 left-0 w-full h-full"></canvas>
+      <canvas className="webgl fixed top-32 left-0 w-full h-full pointer-events-none"></canvas>
 
       <Section
         ref={firstRef}

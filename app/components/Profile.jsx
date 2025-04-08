@@ -2,45 +2,56 @@ import React from "react";
 
 const Profile = () => {
   return (
-    <div className="flex flex-col h-full m-8">
+    <div className="flex flex-col m-8 items-center">
       {/* User Profile */}
-      <div className="flex w-full items-center gap-4 mb-4">
-        <img className="w-16" src="/images/user.png" alt="User icon" />
+      <div className="flex items-center gap-2 mb-8">
+        <img className="w-16" src="/images/user.png" alt="User Icon" />
         <h2 className="text-3xl">User Profile</h2>
       </div>
 
       {/* Profile Image */}
-      <div className="flex gap-8 w-full">
+      <div className="flex gap-8">
         <div>
-          {/* <img
-            className="w-64"
-            src="/images/image-upload.png"
-            alt="User icon"
-          /> */}
           <div className="flex items-center justify-center mb-2 bg-gray-400 rounded-4xl w-64 h-64">
             <p className="text-center text-3xl">
               320x320 <br /> Profile Image
             </p>
           </div>
-          <p className="text-center">dog.png | 400 kb</p>
+          <p className="text-center">cat.png | 400 kb</p>
         </div>
-
         {/* Upload Image */}
-        <div className="flex flex-col items-center ">
-          {/* <img
-            className="w-48"
-            src="/images/image-upload.png"
-            alt="User icon"
-          /> */}
-          <div className="flex flex-col border-dashed border-4 items-center justify-center mb-4 rounded-4xl w-48 h-48">
+        <div className="flex flex-col mr-16">
+          <div className="flex flex-col border-dashed border-4 items-center justify-center mb-2 rounded-4xl w-48 h-48">
             <img className="w-16 " src="/images/upload.png" alt="uplaod" />
             <p className="text-center text-2xl">
               Drag and Drop <br /> Your Image
             </p>
           </div>
-          <button className="rounded-sm p-2 border-2 cursor-pointer w-full bg-blue-500 border-blue-500">
-            Upload Image
-          </button>
+          <CustomButton label={"Upload Image"} bgColor={"bg-blue-500"} />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label htmlFor="">Name</label>
+          <div className="flex gap-4">
+            <input
+              className="border-2 p-2 rounded-md"
+              type="text"
+              placeholder="Name"
+            />
+            <CustomButton label={"Update"} bgColor={"bg-blue-500"} />
+          </div>
+          <CustomButton label={"Generate Name"} bgColor={"bg-green-500"} />
+
+          <label htmlFor="">Name for Strangers</label>
+          <div className="flex gap-4">
+            <input
+              className="border-2 p-2 rounded-md"
+              type="text"
+              placeholder="Name"
+            />
+            <CustomButton label={"Update"} bgColor={"bg-blue-500"} />
+          </div>
+          <CustomButton label={"Generate Name"} bgColor={"bg-green-500"} />
         </div>
       </div>
 
@@ -53,14 +64,12 @@ const Profile = () => {
             type="password"
             placeholder="Password"
           />
-
           <label htmlFor="">New Password</label>
           <input
             className="border-2 p-2 rounded-md"
             type="password"
             placeholder="New Password"
           />
-
           <label htmlFor="">Repeat New Password</label>
           <div className="flex gap-2">
             <input
@@ -71,7 +80,6 @@ const Profile = () => {
             <EditButton />
           </div>
         </div>
-        <div>asd</div>
         <label htmlFor="">Email</label>
         <div className="flex gap-2">
           <input
@@ -92,9 +100,19 @@ const Profile = () => {
 
 export default Profile;
 
+const CustomButton = ({ label, bgColor }) => {
+  return (
+    <button
+      className={`rounded-md border-none p-2 cursor-pointer w-full font-bold ${bgColor}`}
+    >
+      {label}
+    </button>
+  );
+};
+
 const EditButton = () => {
   return (
-    <button className="rounded-md w-24 font-bold p-2 border-2 cursor-pointer bg-blue-500 border-blue-500">
+    <button className="rounded-md border-none p-2 cursor-pointer bg-blue-500 w-full font-bold">
       Update
     </button>
   );
@@ -102,7 +120,7 @@ const EditButton = () => {
 
 const DangerButton = ({ label }) => {
   return (
-    <button className="rounded-md p-2 w-32 border-2 cursor-pointer bg-red-500 border-red-500">
+    <button className="rounded-md border-none p-2 cursor-pointer bg-red-500 w-full font-bold">
       {label}
     </button>
   );
@@ -110,7 +128,7 @@ const DangerButton = ({ label }) => {
 
 const SuccessButton = ({ label }) => {
   return (
-    <button className="rounded-md p-2 w-32 border-2 cursor-pointer bg-green-500 border-green-500">
+    <button className="rounded-md border-none p-2 cursor-pointer bg-green-500 w-full font-bold">
       {label}
     </button>
   );
